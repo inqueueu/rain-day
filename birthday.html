@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Birthday Letter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- First Page: Birthday Letter -->
+    <div id="letterPage" class="page">
+        <div class="letter-container">
+            <div class="initial-content">
+                <h1>🎉happy 20th birthday!🎉</h1>
+                <p>hello my dearest rain! i couldn't make you a
+                    cute written letter, so here is a digital one
+                    instead! i hope you enjoy 🐧ིྀ ♡
+                </p>
+                <button id="startScrollButton">open your letter</button>
+                <br>
+                <p></p>
+            </div>
+            <div class="letter-content hidden">
+                <h1>🎉happy birthday!🎉</h1>
+                <p>dear rain,</p>
+                <p>happiest 20th birthday to you! i'm sorry this is
+                    a little bit sillier than i wanted it to be. but i
+                    wasn't able to make you a cute letter set on time! i hope
+                    this is enough for now...
+                    i'm so grateful and honored to be celebrating another milestone together
+                    with you!
+                    <br><br>
+                    i'm sure you have so many worries, and turning
+                    20 might feel daunting, but i hope you know that i am and will be
+                    with you every step of the way, in the same way you have. we have so
+                    many things to experience still, and as long as we are together and put
+                    our minds to it- our wishes will come true, we will
+                    be just fine, i believe it. our worries that seem to never end, will eventually pass too.
+                    <br><br>
+                    i hope you remember that i am always so, so proud of you and i wish i could take
+                    your daily worries and
+                    exhaustion and simply embrace you every second of the day. you are
+                    everything to me and the only person i will ever share my love with... so
+                    i want to do everything i can for you.
+                    <br> <br>
+                    you only turn 20 once, so i hope that spending it with me
+                    will be one of the happiest and most memorable ones. i am the happiest when you are, and
+                    i want nothing than to make you feel loved and pretty and happy on this day.
+                    just say so and i will make anything come true- on this day, and everyday!!!
+                    <br> <br>
+                    i hope this letter can be something you look back to whenever you have
+                    doubts. my love for you is embedded in this silly little letter- even though
+                    it's not very impressive... but if you want me to write you a physical one too,
+                    i totally will!!! anything for you.
+                    <br><br>
+                    i hope you have the happiest birthday my darling, thank you for loving me, for being
+                    so kind and loving. i am so grateful for being allowed to be such a big part of your life,
+                    i hope that your heart's exhaustion melts when we are together and that it's at its happiest too.
+                    <br><br>
+                    let's make more happy and cherished memories together. please stay so healthy and happy.
+                </p>
+                <p>forever and always yours,</p>
+                <p>ysa</p>
+                <br>
+                <p>while writing this, i wasn't sure if we'd be able to
+                    grab you a cake! so, here.
+                </p>
+            </div>
+            <button id="nextPageButton" class="hidden">make a wish 🎂</button>
+            <button id="backToTopButton" class="hidden">back to top</button>
+            <button id="resetPageButton" class="hidden">reset page</button>
+            <button id="vouchersPageButton" class="hidden">claim vouchers🎟️</button>
+        </div>
+    </div>
+
+    <!-- Second Page: Cake and Make a Wish -->
+    <div id="cakePage" class="page hidden">
+        <div class="cake-container">
+            <h1>🎂 make a wish! 🎂</h1>
+            <img src="cake.gif" alt="Birthday Cake" class="cake-image"> <!-- Replace with your cake image -->
+            <p>close your eyes, make a wish, and blow out the candles (please pretend)!</p>
+            <button id="backToLetterButton">back to letter</button>
+        </div>
+    </div>
+
+    <!-- Third Page: Vouchers -->
+    <div id="vouchersPage" class="page hidden">
+        <div class="vouchers-container">
+            <h1>🎟️cue's vouchers🎟️</h1>
+            <p>real adults get real adult gifts. here are some vouchers. 
+            each one is redeemable at your local cue. valid until forever!</p>
+            <div class="vouchers">
+                <button id="hugVoucher">claim a hug</button>
+                <button id="kissVoucher">claim a kiss</button>
+                <button id="complimentVoucher">claim ultimate voucher</button>
+            </div>
+            <p id="voucherMessage" class="hidden"></p>
+            <button id="backToLetterFromVouchers">Back to Letter</button>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <audio id="audioPlayer" controls loop>
+            <source src="forever&always.mp3" type="audio/mpeg"> <!-- First song -->
+            <source src="lovemenot.mp3" type="audio/mpeg"> <!-- Second song -->
+            <source src="lucky.mp3" type="audio/mpeg"> <!-- Third song -->
+            Your browser does not support the audio element.
+        </audio>
+        <div class="music-controls">
+            <button id="prevSongButton">⏮️</button>
+            <button id="nextSongButton">⏭️</button>
+        </div>
+    </div>
+
+    <script>
+        const startScrollButton = document.getElementById('startScrollButton');
+        const letterPage = document.getElementById('letterPage');
+        const cakePage = document.getElementById('cakePage');
+        const vouchersPage = document.getElementById('vouchersPage');
+        const backToTopButton = document.getElementById('backToTopButton');
+        const resetPageButton = document.getElementById('resetPageButton');
+        const letterContent = document.querySelector('.letter-content');
+        const letterContainer = document.querySelector('.letter-container');
+        const initialContent = document.querySelector('.initial-content');
+        const nextPageButton = document.getElementById('nextPageButton');
+        const backToLetterButton = document.getElementById('backToLetterButton');
+        const vouchersPageButton = document.getElementById('vouchersPageButton');
+        const backToLetterFromVouchers = document.getElementById('backToLetterFromVouchers');
+        const kissVoucher = document.getElementById('kissVoucher');
+        const hugVoucher = document.getElementById('hugVoucher');
+        const complimentVoucher = document.getElementById('complimentVoucher');
+        const voucherMessage = document.getElementById('voucherMessage');
+
+        // Show letter content and buttons
+        startScrollButton.addEventListener('click', function () {
+            initialContent.classList.add('hidden');
+            letterContent.classList.remove('hidden');
+            nextPageButton.classList.remove('hidden');
+            backToTopButton.classList.remove('hidden');
+            resetPageButton.classList.remove('hidden');
+            vouchersPageButton.classList.remove('hidden'); // Add this line
+        });
+
+        // Go to the cake page
+        nextPageButton.addEventListener('click', function () {
+            letterPage.classList.add('hidden');
+            cakePage.classList.remove('hidden');
+        });
+
+        // Go back to the letter page
+        backToLetterButton.addEventListener('click', function () {
+            cakePage.classList.add('hidden');
+            letterPage.classList.remove('hidden');
+        });
+
+        // Go to the vouchers page
+        vouchersPageButton.addEventListener('click', function () {
+            letterPage.classList.add('hidden');
+            vouchersPage.classList.remove('hidden');
+        });
+
+        // Go back to the letter page from vouchers
+        backToLetterFromVouchers.addEventListener('click', function () {
+            vouchersPage.classList.add('hidden');
+            letterPage.classList.remove('hidden');
+        });
+
+        // Scroll back to the top
+        backToTopButton.addEventListener('click', function () {
+            letterContainer.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Reset the page
+        resetPageButton.addEventListener('click', function () {
+            letterContent.classList.add('hidden');
+            backToTopButton.classList.add('hidden');
+            resetPageButton.classList.add('hidden');
+            nextPageButton.classList.add('hidden');
+            vouchersPageButton.classList.add('hidden');
+            initialContent.classList.remove('hidden');
+
+            // Scroll back to the top
+            letterContainer.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Voucher Buttons
+        kissVoucher.addEventListener('click', function () {
+            voucherMessage.textContent = "you've claimed a kiss! redeem anytime, multiple times! woah! greed...";
+            voucherMessage.classList.remove('hidden');
+        });
+
+        hugVoucher.addEventListener('click', function () {
+            voucherMessage.textContent = "you've claimed a hug! redeem anytime, multiple times!";
+            voucherMessage.classList.remove('hidden');
+        });
+
+        complimentVoucher.addEventListener('click', function () {
+            voucherMessage.textContent = "you've claimed a...?! THE ULTIMATE VOUCHER... cue will do anything you say...!";
+            voucherMessage.classList.remove('hidden');
+        });
+
+        // Music Player Controls
+        const audioPlayer = document.getElementById('audioPlayer');
+        const prevSongButton = document.getElementById('prevSongButton');
+        const nextSongButton = document.getElementById('nextSongButton');
+        const songs = ["forever&always.mp3", "lovemenot.mp3", "lucky.mp3"]; // List of songs
+        let currentSongIndex = 0;
+
+        // Function to load and play a song
+        function loadSong(index) {
+            audioPlayer.src = songs[index];
+            audioPlayer.play();
+        }
+
+        // Play the next song
+        nextSongButton.addEventListener('click', function () {
+            currentSongIndex = (currentSongIndex + 1) % songs.length; // Loop back to the first song
+            loadSong(currentSongIndex);
+        });
+
+        // Play the previous song
+        prevSongButton.addEventListener('click', function () {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length; // Loop back to the last song
+            loadSong(currentSongIndex);
+        });
+
+        // Automatically play the next song when the current one ends
+        audioPlayer.addEventListener('ended', function () {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+        });
+    </script>
+</body>
+</html>

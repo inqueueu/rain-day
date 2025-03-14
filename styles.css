@@ -1,0 +1,222 @@
+body {
+    font-family: 'Press Start 2P', serif; /* Elegant serif font */
+    background-color: #fff0f5; /* Soft pastel pink background */
+    display: flex;
+    background-image: url(the\ world\ is\ ours.gif);
+    justify-content: center;
+    background-size: 90%;
+    background-position: 30%;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333; /* Dark gray text for readability */
+}
+
+
+/* Letter Container */
+.letter-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 50px;
+    border-radius: 10px;
+    border: 2px solid #ffb6c1;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
+    width: 80%;
+    max-width: 600px;
+    height: 70vh; /* Fixed height */
+    overflow: hidden; /* Hide overflow from the container */
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Align content to the top */
+    align-items: center;
+}
+
+/* Letter Content */
+.letter-content {
+    line-height: 1.6;
+    text-align: left;
+    width: 100%;
+    color: #555;
+    overflow-y: auto; /* Make the content scrollable */
+    max-height: calc(70vh - 125px); /* Adjust based on container height */
+    padding-right: 10px; /* Add space for scrollbar */
+}
+
+.initial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between elements */
+}
+
+h1 {
+    color: #ff69b4; /* Bright pastel pink for the header */
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+p {
+    font-size: 12px;
+    margin-bottom: 18px;
+    line-height:0.6cm;
+    color: #57adeb; /* Slightly darker gray for readability */
+}
+
+button {
+    background-color: #ff69b4; /* Bright pastel pink button */
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    font-family: 'Press Start 2P', serif; /* Elegant serif font */
+
+}
+
+button:hover {
+    background-color: #ff1493; /* Slightly darker pink on hover */
+}
+
+.hidden {
+    display: none;
+}
+
+.letter-content {
+    line-height: 1.6;
+    text-align: left;
+    margin-top: 20px;
+    width: 100%;
+    color: #555; /* Slightly darker gray for readability */
+}
+
+#backToTopButton,
+#resetPageButton {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    background-color: #ff69b4; /* Bright pastel pink button */
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#backToTopButton:hover,
+#resetPageButton:hover {
+    background-color: #ff1493; /* Slightly darker pink on hover */
+}
+
+#resetPageButton {
+    right: 190px; /* Position it to the left of the "Back to Top" button */
+}
+
+/* Second Page: Cake */
+.cake-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid #ffb6c1;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cake-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+/* Music Player */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between audio player and buttons */
+}
+
+.music-player audio {
+    width: 200px; /* Adjust the width as needed */
+}
+
+.music-controls {
+    display: flex;
+    gap: 5px; /* Space between buttons */
+}
+
+.music-controls button {
+    background-color: #ff69b4; /* Bright pastel pink button */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.music-controls button:hover {
+    background-color: #ff1493; /* Slightly darker pink on hover */
+}
+
+/* Vouchers Page */
+.vouchers-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid #ffb6c1;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vouchers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between buttons */
+    margin: 20px 0;
+}
+
+.vouchers button {
+    background-color: #ff69b4; /* Bright pastel pink button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.vouchers button:hover {
+    background-color: #ff1493; /* Slightly darker pink on hover */
+}
+
+#voucherMessage {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff69b4;
+}
